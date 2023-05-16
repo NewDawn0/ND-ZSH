@@ -1,0 +1,149 @@
+#             _
+#     _______| |__  _ __ ___
+#    |_  / __| '_ \| '__/ __|
+#   _ / /\__ \ | | | | | (__
+#  (_)___|___/_| |_|_|  \___|
+#       Ⓒ NewDawn0 (Tom)
+
+# Check var availability
+typeset -U path cdpath fpath manpath
+
+# Set paths
+for profile in ${(z)NIX_PROFILES}; do
+    fpath+=("$profile/share/zsh/site-functions" $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
+done
+fpath+=(@zsh_completions@/share/zsh/site-functions)
+# Plugins
+autoload -U compinit && compinit
+source @zsh_autosuggestions@/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+. @zsh_autopair@/share/zsh/zsh-autopair/autopair.zsh
+. @fzf@/share/fzf/completion.zsh
+. @fzf@/share/fzf/key-bindings.zsh
+
+# Settings
+HISTSIZE="10000"
+SAVEHIST="10"
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+unsetopt SHARE_HISTORY
+unsetopt EXTENDED_HISTORY
+
+# EXPORTS
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export KEYTIMEOUT=1
+export EDITOR="nvim"
+export VISUAL="nvim"
+export GIT_EDITOR="nvim"
+export FIGNORE="*.o:~:Application Scripts:CVS:.git"
+export LESS="--raw-control-chars -FXRadeqs -P--Less--?e?x(Next file: %x):(END).:?pB%pB%."
+export CLICOLOR=1
+export CLICOLOR_FORCE="yes"
+export PAGER="less"
+export MANPAGER="less -R --use-color -Dd+r +Gg -M -s"
+export SYSTEMD_COLORS="true"
+export FZF_CTRL_R_OPTS="--sort --exact"
+export FZF_CTRL_R_OPTS="--sort --exact"
+export PROMPT="%B%(?..[%?] )%b%n@%U%m%u> "
+export RPROMPT="%~"
+export PS1="%B%(?..[%?] )%b%n@%U%m%u> "
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
+
+# Functions
+function gvim() { neovide "$@" }
+function ex () {
+    if [ -f "$1" ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1   ;;
+            *.tar.gz)    tar xzf $1   ;;
+            *.bz2)       bunzip2 $1   ;;
+            *.rar)       unrar x $1   ;;
+            *.gz)        gunzip $1    ;;
+            *.tar)       tar xf $1    ;;
+            *.tbz2)      tar xjf $1   ;;
+            *.tgz)       tar xzf $1   ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1 ;;
+            *.7z)        7z x $1      ;;
+            *.deb)       ar x $1      ;;
+            *.tar.xz)    tar xf $1    ;;
+            *.tar.zst)   unzstd $1    ;;
+            *)           echo "'$1' cannot be extracted via ex()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+function up () {
+    local d=""
+    local limit="$1"
+
+    # Default to limit of 1
+    if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+        limit=1
+    fi
+
+    for ((i=1;i<=limit;i++)); do
+        d="../$d"
+    done
+    # perform cd. Show error if cd fails
+    if ! cd "$d"; then
+        echo "Couldn't go up $limit dirs.";
+    fi
+}
+
+# Aliases/Nix
+alias nixse='nix search nixpkgs'
+alias nixrm='nix-env --uninstall'
+alias cargoup='cargo install-update -a'
+# Aliases/Utils
+alias reload='source $ZDOTDIR/.zshrc'
+alias ls='exa'
+alias lt='exa -aT --color=always --group-directories-first'
+alias grep='grep --color=auto'
+alias udef='udict'
+alias ps='procs'
+alias mv='mv -i'
+alias cp='cp -i'
+alias exit='kill -9 $$'
+alias sleep='bettersleep'
+alias g++='g++ -std=c++17'
+alias python='python3'
+alias pip='python3 -m pip'
+alias vim='nvim'
+alias zshrc='vim ~/.zshrc'
+# Aliases/Eidor
+alias qe="emacsclient -e '(kill-emacs)'"
+alias et="emacsclient -c --quiet -a \"nvim\" $*"
+# Aliases/Media
+alias ytdl-mp3="youtube-dl -x --audio-format mp3 --embed-thumbnail"
+alias ytdl="youtube-dl"
+
+# Misc
+set -o vi
+bindkey -v
+bindkey '^a' autosuggest-accept
+
+# Completions
+setopt list_ambiguous
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' menu select
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+
+# Startup
+source @zsh_syntax_highlighting@/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zmodload -a autocomplete
+zmodload -a complist
+eval $(starship init zsh)
+clear
+pac

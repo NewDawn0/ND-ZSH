@@ -1,0 +1,193 @@
+# right_format = """$git_branch"""
+# Prompt: param 2 └─
+
+[character]
+success_symbol = "[ ](#d2a5df)"
+error_symbol = "[ ](#ed8796)"
+vicmd_symbol = "[ ](#a6da95)"
+
+# Username
+[username]
+style_user = "dimmed blue"
+disabled=true
+
+[hostname]
+ssh_only = false
+trim_at = "-"
+format = "[](fg:#ff6262 bg:none)[ ](fg:#282c34 bg:#ff6262)[](fg:#ff6262 bg:#ff7b7a)[ $hostname]($style)[](fg:#ff7b7a bg:none) "
+style = "fg:#282c34 bg:#ff7b7a"
+disabled = true
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+unknown_symbol = ""
+disabled = true
+format = "[ ](fg:#ff6c6b bg:none)[$symbol ](fg:#282c34 bg:#ff6c6b)[ ](fg:#ff6c6b bg:#ff7b7a)[$percentage]($style)[ ](fg:#ff7b7a bg:none)"
+[[battery.display]]
+style = "fg:#282c34 bg:#ff7b7a"
+threshold=100
+
+# Last param in the first line/row
+[cmd_duration]
+min_time = 1
+#format = "[ ](fg:#ff6c6b bg:none)[ $duration](fg:#000000 bg:#ff6c6b)[](fg:#ff6c6b bg:none)"
+format = "[ $duration ](fg:#a9a1e1 bg:none)"
+disabled = false
+style = "fg:#282c34 bg:#a9a1e1"
+
+# Third param
+[directory]
+format = "[ $path](fg:#c6a0f6 bg:none)"
+#format = "[](fg:#5068dc bg:none)[ ](fg:#000000 bg:#5068dc)[](fg:#5068dc bg:#50b7dc)[ $path]($style)[](fg:#50b7dc bg:none) "
+style = "fg:#000000 bg:#50b7dc"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[](fg:#6d24c6 bg:none)[](fg:#000000 bg:#6d24c6)[](fg:#6d24c6 bg:#ad2cd8)[ $branch]($style)[](fg:#ad2cd8 bg:none) "
+style = "fg:#000000 bg:#ad2cd8"
+disabled = true
+
+[git_commit]
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_status]
+format="[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[ ](fg:#3896d6 bg:#51afef)[$modified](fg:#282c34 bg:#51afef)[$untracked](fg:#282c34 bg:#51afef)[$staged](fg:#282c34 bg:#51afef)[$renamed](fg:#282c34 bg:#51afef)[](fg:#51afef bg:none)"
+conflicted = "="
+ahead =	"⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+style =	"red"
+disabled = true
+
+[git_state]
+rebase = "REBASING"
+merge =	"MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style =	"yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[hg_branch]
+symbol = ""
+style = "purple"
+format = "on [$symbol$branch]($style) "
+
+[time]
+style="fg:#282c34 bg:#51afef"
+format="[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[](fg:#3896d6 bg:#51afef)[ $time]($style)[](fg:#51afef bg:none)"
+time_format = "%R"
+disabled = true
+
+[docker_context]
+disabled = false
+symbol = "  "
+
+[c]
+format = "[ $symbol $version]($style)"
+symbol = ""
+style = "blue"
+disabled = false
+
+[elixir]
+disabled = false
+
+[conda]
+disabled = false
+format = "[ $symbol $version Conda]($style)"
+symbol = ""
+
+[dart]
+disabled = false
+format = "[ $symbol$version Dart]($style)"
+symbol = ""
+
+[package]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+
+[perl]
+disabled = false
+format = "[ $symbol $version]($style)"
+style = "#585d7f"
+symbol = ""
+
+[php]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+
+[ruby]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+
+[java]
+disabled = false
+format = "[ $symbol $version]($style)"
+style = "#ffa500"
+symbol = ""
+
+[lua]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+style = "#3f3fff"
+
+[nodejs]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+
+[swift]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = "ﯣ"
+
+[julia]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = "ஃ"
+style = "#aaaaff"
+
+[python]
+disabled = false
+format = '[ ${symbol} ${version}]($style)'
+symbol = ""
+style = "italic Blue"
+
+[rust]
+disabled = false
+format = "[ $symbol $version]($style)"
+style = "#ff5533"
+symbol = ""
+
+[kotlin]
+format = "[ $symbol$version]($style)"
+disabled = false
+style = "#ba8aff"
+
+[golang]
+format = "[ $symbol $version]($style)"
+disabled = false
+symbol = ""
+
+[haskell]
+disabled = false
+format = "[ $symbol $version]($style)"
+symbol = ""
+
+# Prompt: optional param 1
