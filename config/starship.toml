@@ -1,15 +1,24 @@
+#  _   _ ____       _________  _   _         _      
+# | \ | |  _ \     |__  / ___|| | | |  _ __ (_)_  __
+# |  \| | | | |_____ / /\___ \| |_| | | '_ \| \ \/ /
+# | |\  | |_| |_____/ /_ ___) |  _  |_| | | | |>  < 
+# |_| \_|____/     /____|____/|_| |_(_)_| |_|_/_/\_\
+#                                                   
+# FILE: starship.toml
+# DESC: Starship prompt config
+
 # right_format = """$git_branch"""
 # Prompt: param 2 └─
 
 [character]
 success_symbol = "[ ](#d2a5df)"
 error_symbol = "[ ](#ed8796)"
-vicmd_symbol = "[ ](#a6da95)"
+vimcmd_symbol = "[ ](#a6da95)"
 
 # Username
 [username]
 style_user = "dimmed blue"
-disabled=true
+disabled = true
 
 [hostname]
 ssh_only = false
@@ -27,7 +36,7 @@ disabled = true
 format = "[ ](fg:#ff6c6b bg:none)[$symbol ](fg:#282c34 bg:#ff6c6b)[ ](fg:#ff6c6b bg:#ff7b7a)[$percentage]($style)[ ](fg:#ff7b7a bg:none)"
 [[battery.display]]
 style = "fg:#282c34 bg:#ff7b7a"
-threshold=100
+threshold = 100
 
 # Last param in the first line/row
 [cmd_duration]
@@ -43,7 +52,7 @@ format = "[ $path](fg:#c6a0f6 bg:none)"
 #format = "[](fg:#5068dc bg:none)[ ](fg:#000000 bg:#5068dc)[](fg:#5068dc bg:#50b7dc)[ $path]($style)[](fg:#50b7dc bg:none) "
 style = "fg:#000000 bg:#50b7dc"
 truncation_length = 3
-truncate_to_repo=false
+truncate_to_repo = false
 
 [git_branch]
 format = "[](fg:#6d24c6 bg:none)[](fg:#000000 bg:#6d24c6)[](fg:#6d24c6 bg:#ad2cd8)[ $branch]($style)[](fg:#ad2cd8 bg:none) "
@@ -55,9 +64,9 @@ format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
 style = "green"
 
 [git_status]
-format="[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[ ](fg:#3896d6 bg:#51afef)[$modified](fg:#282c34 bg:#51afef)[$untracked](fg:#282c34 bg:#51afef)[$staged](fg:#282c34 bg:#51afef)[$renamed](fg:#282c34 bg:#51afef)[](fg:#51afef bg:none)"
+format = "[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[ ](fg:#3896d6 bg:#51afef)[$modified](fg:#282c34 bg:#51afef)[$untracked](fg:#282c34 bg:#51afef)[$staged](fg:#282c34 bg:#51afef)[$renamed](fg:#282c34 bg:#51afef)[](fg:#51afef bg:none)"
 conflicted = "="
-ahead =	"⇡${count} "
+ahead = "⇡${count} "
 behind = "⇣${count} "
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 untracked = "?${count} "
@@ -65,18 +74,18 @@ modified = "!${count} "
 staged = "+${count} "
 renamed = "»${count} "
 deleted = "✘${count} "
-style =	"red"
+style = "red"
 disabled = true
 
 [git_state]
 rebase = "REBASING"
-merge =	"MERGING"
+merge = "MERGING"
 revert = "REVERTING"
 cherry_pick = "CHERRY-PICKING"
 bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
-style =	"yellow"
+style = "yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 disabled = false
 
@@ -86,8 +95,8 @@ style = "purple"
 format = "on [$symbol$branch]($style) "
 
 [time]
-style="fg:#282c34 bg:#51afef"
-format="[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[](fg:#3896d6 bg:#51afef)[ $time]($style)[](fg:#51afef bg:none)"
+style = "fg:#282c34 bg:#51afef"
+format = "[](fg:#3896d6 bg:none)[ ](fg:#282c34 bg:#3896d6)[](fg:#3896d6 bg:#51afef)[ $time]($style)[](fg:#51afef bg:none)"
 time_format = "%R"
 disabled = true
 
