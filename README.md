@@ -1,7 +1,7 @@
 # ND-ZSH
 
-A simple configuration using Nix flakes for ZSH. It is designed for minimal
-environments
+This is a simple configuration for ZSH that uses Nix flakes. It is designed for
+minimal environments.
 
 ## Requirements
 
@@ -10,19 +10,26 @@ environments
 
 ## Installation
 
-To quickly install and use such a shell run:
+To quickly install and use this shell configuration, run the following command:
 
 ```bash
 nix run github:NewDawn0/ND-ZSH
 ```
 
-To instlall it run:
+To install it, follow the instructions below:
 
 ```bash
 # TODO: Add install instructions
 ```
 
-## Installed binaries
+## Additional Features
+
+The shell configuration provides autocomplete, syntax highlighting, and
+suggestions.
+
+## Installed Binaries
+
+The following binaries are installed:
 
 - bat
 - btop
@@ -36,11 +43,18 @@ To instlall it run:
 - fzf
 - gcc
 - git
+- gnat
 - gnused
 - less
 - mdcat
+- nodejs
 - pac
 - ripgrep
 - starship
 - wget
 - zsh
+
+## Keybinds
+
+- `Esc` To enter VI mode
+- `<C-a>` To accept the autosuggestion
