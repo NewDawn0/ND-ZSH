@@ -20,8 +20,8 @@
       pkgs = import nixpkgs { inherit system; };
     in rec {
       dependencies = with pkgs; [
-        bat btop bottom coreutils curl exa fd file figlet fzf git gnused less mdcat ripgrep starship zsh zsh-completions
-        zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting zsh-autopair gcc wget
+        bat btop bottom coreutils curl exa fd file figlet fzf git gnused less mdcat ripgrep starship zsh
+        zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting zsh-autopair wget nodejs gnat
       ];
 
       packages.ndzsh= with pkgs; stdenv.mkDerivation rec {
@@ -29,7 +29,7 @@
         name = "ndzsh";
         inherit system;
         src = self;
-        buildInputs = [ zsh gcc ] ++ dependencies;
+        buildInputs = [ zsh ] ++ dependencies;
         nativeBuildInputs = [ makeWrapper ];
         phases = ["installPhase"];
 
@@ -43,7 +43,6 @@
           export zsh_syntax_highlighting="${pkgs.zsh-syntax-highlighting}"
           export fzf="${pkgs.fzf}"
           export starship="${pkgs.starship}"
-          export zsh_completions="${pkgs.zsh-completions}"
           export starshipconfig="${./config/starship.toml}"
           export zsh_autopair="${pkgs.zsh-autopair}"
           substituteAll $src/config/zshrc $out/config/.zshrc
