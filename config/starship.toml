@@ -11,9 +11,9 @@
 # Prompt: param 2 └─
 
 [character]
-success_symbol = "[ ](#d2a5df)"
-error_symbol = "[ ](#ed8796)"
-vimcmd_symbol = "[ ](#a6da95)"
+success_symbol = "[ ](#ffa500)"
+error_symbol = "[ ](#ff5555)"
+vimcmd_symbol = "[ ](#a6da95)"
 
 # Username
 [username]
