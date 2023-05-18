@@ -1,7 +1,7 @@
 # ND-ZSH
 
-This is a simple configuration for ZSH that uses Nix flakes. It is designed for
-minimal environments.
+My Z-Shell configuration using Nix flakes. It is designed to get a quick usable
+shell up and running in minimal environments.
 
 ## Requirements
 
@@ -10,17 +10,13 @@ minimal environments.
 
 ## Installation
 
-To quickly install and use this shell configuration, run the following command:
+To try it out in a quick shell run the following command:
 
 ```bash
 nix run github:NewDawn0/ND-ZSH
 ```
 
-To install it, follow the instructions below:
-
-```bash
-# TODO: Add install instructions
-```
+Or to fully install it, add it to your nix configuration
 
 ## Additional Features
 
