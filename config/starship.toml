@@ -41,15 +41,17 @@ threshold = 100
 # Last param in the first line/row
 [cmd_duration]
 min_time = 1
-#format = "[ ](fg:#ff6c6b bg:none)[ $duration](fg:#000000 bg:#ff6c6b)[](fg:#ff6c6b bg:none)"
-format = "[ $duration ](fg:#a9a1e1 bg:none)"
+# format = "[ ](fg:#ff6c6b bg:none)[ $duration](fg:#000000 bg:#ff6c6b)[](fg:#ff6c6b bg:none)"
+# format = "[ $duration ](fg:#a9a1e1 bg:none)"
+format = "[ $duration ](fg:#ff7420 bg:none)"
 disabled = false
 style = "fg:#282c34 bg:#a9a1e1"
 
 # Third param
 [directory]
-format = "[ $path](fg:#c6a0f6 bg:none)"
-#format = "[](fg:#5068dc bg:none)[ ](fg:#000000 bg:#5068dc)[](fg:#5068dc bg:#50b7dc)[ $path]($style)[](fg:#50b7dc bg:none) "
+# format = "[ $path](fg:#c6a0f6 bg:none)"
+format = "[ $path](fg:#ff5868 bg:none)"
+# format = "[](fg:#5068dc bg:none)[ ](fg:#000000 bg:#5068dc)[](fg:#5068dc bg:#50b7dc)[ $path]($style)[](fg:#50b7dc bg:none) "
 style = "fg:#000000 bg:#50b7dc"
 truncation_length = 3
 truncate_to_repo = false

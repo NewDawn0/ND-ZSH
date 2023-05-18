@@ -69,7 +69,7 @@
               export fzf="${pkgs.fzf}"
               export starship="${pkgs.starship}"
               export zsh_autopair="${pkgs.zsh-autopair}"
-              export STARSHIP_CONFIG="${./config/starship.toml}"
+              export starship_config="${./config/starship.toml}"
               substituteAll $src/config/zshrc $out/config/.zshrc
               makeWrapper "${zsh}/bin/zsh" "$out/bin/ndzsh" --set SHELL_SESSIONS_DISABLE 1 --set ZDOTDIR "$out/config" --prefix PATH : "$out/bin:"${
                 pkgs.lib.makeBinPath dependencies
