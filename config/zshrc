@@ -20,6 +20,7 @@ source @zsh_autosuggestions@/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 . @zsh_autopair@/share/zsh/zsh-autopair/autopair.zsh
 . @fzf@/share/fzf/completion.zsh
 . @fzf@/share/fzf/key-bindings.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffcc00,bg=none,bold"
 
 # Settings
 HISTSIZE="10000"
