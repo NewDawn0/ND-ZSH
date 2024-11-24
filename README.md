@@ -1,5 +1,7 @@
 # ND-ZSH
 
+NOTE: I use nix now. This repo is no longer in use
+
 My Z-Shell configuration using Nix flakes. It is designed to get a quick usable
 shell up and running in minimal environments.
 
